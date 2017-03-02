@@ -1,5 +1,8 @@
 package br.com.bookstore.model;
 
+import java.util.List;
+
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,6 +17,9 @@ public class Product {
 	private String title;
 	private String description;
 	private String pages;
+	
+	@ElementCollection
+	private List<Price> types;
 	
 	@Override
 	public String toString() {
@@ -37,6 +43,19 @@ public class Product {
 	public void setPages(String pages) {
 		this.pages = pages;
 	}
-	
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public List<Price> getPrices() {
+		return types;
+	}
+	public void setPrices(List<Price> prices) {
+		this.types = prices;
+	}
 
+	
+	
 }
