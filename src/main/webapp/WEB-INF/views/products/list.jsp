@@ -8,6 +8,9 @@
 </head>
 <body>
 
+	<h1>Products list</h1>
+	<p> ${confirmationMessage} </p>
+
 	<table>
 		<tr>
 			<td>Title</td>
