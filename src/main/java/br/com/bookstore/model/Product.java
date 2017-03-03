@@ -16,7 +16,7 @@ public class Product {
 	private Integer id;
 	private String title;
 	private String description;
-	private String pages;
+	private Integer pages;
 	
 	@ElementCollection
 	private List<Price> types;
@@ -37,10 +37,10 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getPages() {
+	public Integer getPages() {
 		return pages;
 	}
-	public void setPages(String pages) {
+	public void setPages(Integer pages) {
 		this.pages = pages;
 	}
 	public Integer getId() {
