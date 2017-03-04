@@ -46,7 +46,7 @@ public class ProductsController {
 		}
 		productDAO.save(product);
 		redirectAttributes.addFlashAttribute("confirmationMessage", "Product " + product.getTitle() + " added with success.");
-		return new ModelAndView("redirect:products");
+		return new ModelAndView("redirect:/products");
 	}
 
 	@RequestMapping(method=RequestMethod.GET)
