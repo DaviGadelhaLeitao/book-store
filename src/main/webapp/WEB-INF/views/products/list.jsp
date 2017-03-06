@@ -16,12 +16,14 @@
 			<td>Title</td>
 			<td>Description</td>
 			<td>Pages</td>
+			<td>Published</td>
 		</tr>
 		<c:forEach items="${products }" var="product">
 			<tr>
 				<td>${product.title }</td>
 				<td>${product.description }</td>
 				<td>${product.pages }</td>
+				<td>${product.published }</td>
 			</tr>
 		</c:forEach>
 	</table>

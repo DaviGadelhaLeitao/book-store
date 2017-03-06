@@ -1,5 +1,6 @@
 package br.com.bookstore.model;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.ElementCollection;
@@ -7,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Product {
@@ -17,6 +20,9 @@ public class Product {
 	private String title;
 	private String description;
 	private Integer pages;
+	
+	@DateTimeFormat
+	private Calendar published;
 	
 	@ElementCollection
 	private List<Price> types;
@@ -54,6 +60,12 @@ public class Product {
 	}
 	public void setPrices(List<Price> prices) {
 		this.types = prices;
+	}
+	public Calendar getPublished() {
+		return published;
+	}
+	public void setPublished(Calendar published) {
+		this.published = published;
 	}
 
 	
