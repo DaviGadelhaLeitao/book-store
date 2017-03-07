@@ -21,8 +21,6 @@ public class Product {
 	private String description;
 	private Integer pages;
 	
-	private String contentPath;
-	
 	@DateTimeFormat
 	private Calendar published;
 	
@@ -68,12 +66,6 @@ public class Product {
 	}
 	public void setPublished(Calendar published) {
 		this.published = published;
-	}
-	public String getContentPath() {
-		return contentPath;
-	}
-	public void setContentPath(String contentPath) {
-		this.contentPath = contentPath;
 	}
 
 	
