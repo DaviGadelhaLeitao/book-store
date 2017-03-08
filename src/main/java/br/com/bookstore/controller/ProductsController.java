@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.bookstore.daos.ProductDAO;
-import br.com.bookstore.infrastructure.FileSaver;
 import br.com.bookstore.model.PriceType;
 import br.com.bookstore.model.Product;
 import br.com.bookstore.validation.ProductValidation;
@@ -24,9 +23,6 @@ import br.com.bookstore.validation.ProductValidation;
 @Controller
 @RequestMapping("/products")
 public class ProductsController {
-	
-	@Autowired
-	private FileSaver fileSaver;
 	
 	@Autowired
 	private ProductDAO productDAO;
@@ -51,11 +47,9 @@ public class ProductsController {
 			System.out.println(result.getFieldError());
 			return form(product);
 		}
-		
 		String path = fileSaver.write("summary-path-folder", summaryPath);
 		product.setSummary(path);
 		
-
 		productDAO.save(product);
 		redirectAttributes.addFlashAttribute("confirmationMessage", "Product " + product.getTitle() + " added with success.");
 		return new ModelAndView("redirect:/products");

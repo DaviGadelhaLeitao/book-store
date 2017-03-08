@@ -11,7 +11,6 @@
 <body>
 
 <form:form action="${s:mvcUrl('PC#saveProduct').build() }" method="POST" commandName="product" enctype="multipart/form-data">
-
 	<div>
 		<label>Title</label>
 		<form:input path="title" />
@@ -19,8 +18,6 @@
 	<div>
 		<form:errors path="title"></form:errors>
 	</div>
-	
-	
 	<div>
 		<label>Description</label>
 		<form:textarea path="description" rows="10" cols="20" />		
@@ -28,8 +25,6 @@
 	<div>
 		<form:errors path="description"></form:errors>
 	</div>
-	
-	
 	<div>
 		<label>Pages:</label>
 		<form:input path="pages" />
@@ -37,7 +32,6 @@
 	<div>
 		<form:errors path="pages"></form:errors>
 	</div>
-	
 	
 	<div>
 		<label>Published:</label>
@@ -47,8 +41,6 @@
 		<form:errors path="published"></form:errors>
 	</div>
 	
-	
-	
 	<c:forEach items="${types}" var="priceType" varStatus="status">
 		<div>
 			<label>${priceType}</label>
@@ -56,15 +48,12 @@
 			<form:hidden path="prices[${status.index}].type" value="${priceType}" />
 		</div>
 	</c:forEach>
-	
-	
 	<br>
 	<div>
 		<label>Book Content:</label>
 		<input type="file" name="summaryPath">
 	</div>
 	<button type="submit">Submit</button>
-	
 </form:form>
 
 </body>

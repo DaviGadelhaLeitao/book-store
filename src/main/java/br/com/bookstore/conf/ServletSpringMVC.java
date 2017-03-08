@@ -32,14 +32,9 @@ public class ServletSpringMVC extends AbstractAnnotationConfigDispatcherServletI
 		return new Filter[] {encodingFilter};
 	}
 	
-	
 	@Override
 	protected void customizeRegistration(Dynamic registration) {
 		registration.setMultipartConfig(new MultipartConfigElement(""));
 		
 	}
-	
-	
-	
-	
 }
