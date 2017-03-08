@@ -20,14 +20,13 @@ public class Product {
 	private String title;
 	private String description;
 	private Integer pages;
-	
-	private String contentPath;
-	
+	private String summary;
 	@DateTimeFormat
 	private Calendar published;
-	
 	@ElementCollection
 	private List<Price> types;
+	
+	
 	
 	@Override
 	public String toString() {
@@ -35,6 +34,12 @@ public class Product {
 	}
 	public String getTitle() {
 		return title;
+	}
+	public String getSummary() {
+		return summary;
+	}
+	public void setSummary(String summary) {
+		this.summary = summary;
 	}
 	public void setTitle(String title) {
 		this.title = title;
@@ -69,13 +74,4 @@ public class Product {
 	public void setPublished(Calendar published) {
 		this.published = published;
 	}
-	public String getContentPath() {
-		return contentPath;
-	}
-	public void setContentPath(String contentPath) {
-		this.contentPath = contentPath;
-	}
-
-	
-	
 }

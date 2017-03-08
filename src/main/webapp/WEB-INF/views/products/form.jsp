@@ -61,7 +61,7 @@
 	<br>
 	<div>
 		<label>Book Content:</label>
-		<input type="file" name="contentPath">
+		<input type="file" name="summaryPath">
 	</div>
 	<button type="submit">Submit</button>
 	

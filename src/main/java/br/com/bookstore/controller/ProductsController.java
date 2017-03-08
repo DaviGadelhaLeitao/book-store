@@ -45,15 +45,15 @@ public class ProductsController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView saveProduct(MultipartFile contentPath, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
-		System.out.println(contentPath.getOriginalFilename());
-		
+	public ModelAndView saveProduct(MultipartFile summaryPath, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
+		System.out.println(summaryPath.getOriginalFilename());
 		if (result.hasErrors()) {
+			System.out.println(result.getFieldError());
 			return form(product);
 		}
 		
-		String path = fileSaver.write("content-path-folder", contentPath);
-		product.setContentPath(path);
+		String path = fileSaver.write("summary-path-folder", summaryPath);
+		product.setSummary(path);
 		
 
 		productDAO.save(product);
