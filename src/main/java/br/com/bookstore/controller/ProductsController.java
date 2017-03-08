@@ -26,9 +26,10 @@ import br.com.bookstore.validation.ProductValidation;
 public class ProductsController {
 	
 	@Autowired
-	private ProductDAO productDAO;
-	@Autowired
 	private FileSaver fileSaver;
+	
+	@Autowired
+	private ProductDAO productDAO;
 
 	// responsible for binding the validator with the controller
 	@InitBinder
@@ -36,18 +37,12 @@ public class ProductsController {
 		binder.addValidators(new ProductValidation());
 	}
 	
-	
-	
-	
 	@RequestMapping(value="/form", method=RequestMethod.GET)
 	public ModelAndView form(Product product) {
 		ModelAndView modelAndView = new ModelAndView("/products/form");
 		modelAndView.addObject("types", PriceType.values());
 		return modelAndView;
 	}
-	
-	
-	
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public ModelAndView saveProduct(MultipartFile summaryPath, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
@@ -63,10 +58,6 @@ public class ProductsController {
 		redirectAttributes.addFlashAttribute("confirmationMessage", "Product " + product.getTitle() + " added with success.");
 		return new ModelAndView("redirect:/products");
 	}
-	
-	
-	
-	
 
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView list() {
@@ -75,5 +66,4 @@ public class ProductsController {
 		modelAndView.addObject("products", products);
 		return modelAndView;
 	}
-
 }

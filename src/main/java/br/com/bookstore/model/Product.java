@@ -26,8 +26,6 @@ public class Product {
 	@ElementCollection
 	private List<Price> types;
 	
-	
-	
 	@Override
 	public String toString() {
 		return "Product [title=" + title + ", description=" + description + ", pages=" + pages + "]";
