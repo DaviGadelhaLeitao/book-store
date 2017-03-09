@@ -17,22 +17,25 @@
 			<p class="book-description">Description: ${product.description }</p>
 			<p>Published in: <fmt:formatDate pattern="dd/MM/yyyy" value="${product.published.time}"/>.</p>
 
-			<form action="/cart/add" method="post">
+			<form action='<c:url value="/cart/add" />' method="post">
+			
 				<p>Please, select your buying option below:</p>
+				
+				<!-- Sending the productId to ShoppingCartController -->
 				<input type="hidden" name="productId" value="${product.id}" >
 				<ul>
 				
-					<c:forEach items="${product.types }" var="price">
+					<c:forEach items="${product.types }" var="book">
 						<li class="buy-option">
-							<input type="radio" name="type" class="variant-radio" id="type" value="${price.type}" checked="checked" />
-							<label class="variant-label"> ${price.type} - $ ${price.value }</label>
+							<input type="radio" name="type" class="variant-radio" id="type" value="${book.type}" checked="checked" />
+							<label class="variant-label"> ${book.type} - $ ${book.value }</label>
 						</li>
 					</c:forEach>
 					
 				</ul>
 				<button type="submit" class="btn btn-primary" title="Compre Agora${product.title}">Buy now</button>
+				
 			</form>
-
 		</div>
 	</div>
 

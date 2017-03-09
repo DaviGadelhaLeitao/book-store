@@ -43,11 +43,11 @@
 				<form:errors path="published"></form:errors>
 			</div>
 			
-			<c:forEach items="${types}" var="priceType" varStatus="status">
+			<c:forEach items="${types}" var="bookType" varStatus="status">
 				<div class="form-group">
-					<label>${priceType}</label>
+					<label>${bookType}</label>
 					<form:input path="types[${status.index}].value"  cssClass="form-control"/>
-					<form:hidden path="types[${status.index}].type" value="${priceType}" />
+					<form:hidden path="types[${status.index}].type" value="${bookType}" />
 				</div>
 			</c:forEach>
 			<br>

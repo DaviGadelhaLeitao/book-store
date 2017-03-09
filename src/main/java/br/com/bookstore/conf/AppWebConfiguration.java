@@ -16,28 +16,32 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import br.com.bookstore.controller.HomeController;
 import br.com.bookstore.daos.ProductDAO;
 import br.com.bookstore.infrastructure.FileSaver;
+import br.com.bookstore.model.ShoppingCart;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses= {HomeController.class, ProductDAO.class, FileSaver.class})
+@ComponentScan(basePackageClasses = { HomeController.class, ProductDAO.class, FileSaver.class, ShoppingCart.class })
 public class AppWebConfiguration {
-	
+
 	@Bean
 	public InternalResourceViewResolver internalResourceViewResolver() {
-		InternalResourceViewResolver resolve = new InternalResourceViewResolver("/WEB-INF/views/", ".jsp");
-		return resolve;
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+		resolver.setExposedContextBeanNames("shoppingCart");
+		return resolver;
 	}
-	
+
 	@Bean
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
-		
+
 		messageSource.setBasename("/WEB-INF/messages");
 		messageSource.setDefaultEncoding("UTF-8");
 		messageSource.setCacheSeconds(1);
-		
+
 		return messageSource;
 	}
-	
+
 	@Bean
 	public FormattingConversionService mvcConversionService() {
 		DefaultFormattingConversionService conversionService = new DefaultFormattingConversionService();
@@ -46,10 +50,10 @@ public class AppWebConfiguration {
 		formatterRegistrar.registerFormatters(conversionService);
 		return conversionService;
 	}
-	
+
 	@Bean
 	public MultipartResolver multipartResolver() {
 		return new StandardServletMultipartResolver();
 	}
-	
+
 }

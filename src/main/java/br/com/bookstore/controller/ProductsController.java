@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.bookstore.daos.ProductDAO;
 import br.com.bookstore.infrastructure.FileSaver;
-import br.com.bookstore.model.PriceType;
+import br.com.bookstore.model.BookType;
 import br.com.bookstore.model.Product;
 import br.com.bookstore.validation.ProductValidation;
 
@@ -41,7 +41,7 @@ public class ProductsController {
 	@RequestMapping(value="/form", method=RequestMethod.GET)
 	public ModelAndView form(Product product) {
 		ModelAndView modelAndView = new ModelAndView("/products/form");
-		modelAndView.addObject("types", PriceType.values());
+		modelAndView.addObject("types", BookType.values());
 		return modelAndView;
 	}
 	
