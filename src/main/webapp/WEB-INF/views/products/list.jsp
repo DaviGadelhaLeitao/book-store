@@ -1,19 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="s"%>
-
+<%@ include file="/WEB-INF/includes.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 <title>List</title>
 </head>
 <body>
 
 	<h1>Products list</h1>
 	<p> ${confirmationMessage} </p>
-
-	<table>
+	<table class="table table-striped table-hover ">
 		<tr>
 			<td>Title</td>
 			<td>Description</td>
@@ -25,7 +22,7 @@
 				<td><a href="${s:mvcUrl('PC#detail').arg(0,product.id).build() }" >${product.title }</a></td>
 				<td>${product.description }</td>
 				<td>${product.pages }</td>
-				<td>${product.published }</td>
+				<td><fmt:formatDate pattern="dd/MM/yyyy" value="${product.published.time }" /> </td>
 			</tr>
 		</c:forEach>
 	</table>
