@@ -4,54 +4,63 @@
 <head>
 <meta charset="UTF-8">
 <title>Products</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
 </head>
 <body>
 
-<form:form action="${s:mvcUrl('PC#saveProduct').build() }" method="POST" commandName="product" enctype="multipart/form-data">
-	<div>
-		<label>Title</label>
-		<form:input path="title" />
+<c:import url="/WEB-INF/views/header.jsp"></c:import>
+
+<div class="main">
+	<div class="container">
+		<form:form action="${s:mvcUrl('PC#saveProduct').build() }" method="POST" commandName="product" enctype="multipart/form-data">
+			<div class="form-group">
+				<label>Title</label>
+				<form:input path="title" cssClass="form-control"/>
+			</div>
+			<div>
+				<form:errors path="title"></form:errors>
+			</div>
+			<div class="form-group">
+				<label>Description</label>
+				<form:textarea path="description" rows="5" cols="20"  cssClass="form-control"/>		
+			</div>
+			<div>
+				<form:errors path="description"></form:errors>
+			</div>
+			<div class="form-group">
+				<label>Pages:</label>
+				<form:input path="pages" cssClass="form-control" />
+			</div>
+			<div>
+				<form:errors path="pages"></form:errors>
+			</div>
+			
+			<div class="form-group">
+				<label>Published:</label>
+				<form:input path="published" cssClass="form-control" />
+			</div>
+			<div>
+				<form:errors path="published"></form:errors>
+			</div>
+			
+			<c:forEach items="${types}" var="priceType" varStatus="status">
+				<div class="form-group">
+					<label>${priceType}</label>
+					<form:input path="prices[${status.index}].value"  cssClass="form-control"/>
+					<form:hidden path="prices[${status.index}].type" value="${priceType}" />
+				</div>
+			</c:forEach>
+			<br>
+			<div class="form-group">
+				<label>Book summary file:</label>
+				<input type="file" name="summaryPath">
+			</div>
+		<button type="submit" class="btn btn-primary">Submit</button>
+		</form:form>
 	</div>
-	<div>
-		<form:errors path="title"></form:errors>
-	</div>
-	<div>
-		<label>Description</label>
-		<form:textarea path="description" rows="10" cols="20" />		
-	</div>
-	<div>
-		<form:errors path="description"></form:errors>
-	</div>
-	<div>
-		<label>Pages:</label>
-		<form:input path="pages" />
-	</div>
-	<div>
-		<form:errors path="pages"></form:errors>
-	</div>
-	
-	<div>
-		<label>Published:</label>
-		<form:input path="published" />
-	</div>
-	<div>
-		<form:errors path="published"></form:errors>
-	</div>
-	
-	<c:forEach items="${types}" var="priceType" varStatus="status">
-		<div>
-			<label>${priceType}</label>
-			<form:input path="prices[${status.index}].value" />
-			<form:hidden path="prices[${status.index}].type" value="${priceType}" />
-		</div>
-	</c:forEach>
-	<br>
-	<div>
-		<label>Book Content:</label>
-		<input type="file" name="summaryPath">
-	</div>
-	<button type="submit">Submit</button>
-</form:form>
+</div>
+
+<c:import url="/WEB-INF/views/footer.jsp"></c:import>
 
 </body>
 </html>

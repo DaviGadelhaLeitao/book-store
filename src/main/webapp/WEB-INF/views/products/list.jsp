@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/includes.jsp" %>
+<%@ include file="/WEB-INF/includes.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,24 +8,32 @@
 </head>
 <body>
 
-	<h1>Products list</h1>
-	<p> ${confirmationMessage} </p>
-	<table class="table table-striped table-hover ">
-		<tr>
-			<td>Title</td>
-			<td>Description</td>
-			<td>Pages</td>
-			<td>Published</td>
-		</tr>
-		<c:forEach items="${products }" var="product">
-			<tr>
-				<td><a href="${s:mvcUrl('PC#detail').arg(0,product.id).build() }" >${product.title }</a></td>
-				<td>${product.description }</td>
-				<td>${product.pages }</td>
-				<td><fmt:formatDate pattern="dd/MM/yyyy" value="${product.published.time }" /> </td>
-			</tr>
-		</c:forEach>
-	</table>
+	<c:import url="/WEB-INF/views/header.jsp"></c:import>
+
+	<div class="main">
+		<div class="container">
+			<h3>Products list</h3>
+			<p>${confirmationMessage}</p>
+			<table class="table table-striped table-hover ">
+				<tr>
+					<th>Title</th>
+					<th>Description</th>
+					<th>Pages</th>
+					<th>Published</th>
+				</tr>
+				<c:forEach items="${products }" var="product">
+					<tr>
+						<td><a href="${s:mvcUrl('PC#detail').arg(0,product.id).build() }">${product.title }</a></td>
+						<td>${product.description }</td>
+						<td>${product.pages }</td>
+						<td><fmt:formatDate pattern="dd/MM/yyyy" value="${product.published.time }" /></td>
+					</tr>
+				</c:forEach>
+			</table>
+		</div>
+	</div>
+
+	<c:import url="/WEB-INF/views/footer.jsp"></c:import>
 
 </body>
 </html>
