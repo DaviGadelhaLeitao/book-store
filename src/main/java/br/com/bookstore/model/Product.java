@@ -60,16 +60,16 @@ public class Product {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public List<Price> getPrices() {
-		return types;
-	}
-	public void setPrices(List<Price> prices) {
-		this.types = prices;
-	}
 	public Calendar getPublished() {
 		return published;
 	}
 	public void setPublished(Calendar published) {
 		this.published = published;
+	}
+	public List<Price> getTypes() {
+		return types;
+	}
+	public void setTypes(List<Price> types) {
+		this.types = types;
 	}
 }

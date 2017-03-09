@@ -46,8 +46,8 @@
 			<c:forEach items="${types}" var="priceType" varStatus="status">
 				<div class="form-group">
 					<label>${priceType}</label>
-					<form:input path="prices[${status.index}].value"  cssClass="form-control"/>
-					<form:hidden path="prices[${status.index}].type" value="${priceType}" />
+					<form:input path="types[${status.index}].value"  cssClass="form-control"/>
+					<form:hidden path="types[${status.index}].type" value="${priceType}" />
 				</div>
 			</c:forEach>
 			<br>
@@ -63,4 +63,5 @@
 <c:import url="/WEB-INF/views/footer.jsp"></c:import>
 
 </body>
+<script type="text/javascript" src=""></script>
 </html>

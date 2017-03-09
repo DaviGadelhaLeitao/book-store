@@ -2,7 +2,7 @@
 <div class="footer">
 	<div class="container">
 		<div class="row">
-			<nav class="navbar navbar-default navbar-fixed-bottom">
+			<nav class="navbar navbar-default navbar-static-bottom">
 				<div class="container">
 					<ul class="nav navbar-nav pull-right">
 						<li role="presentation">

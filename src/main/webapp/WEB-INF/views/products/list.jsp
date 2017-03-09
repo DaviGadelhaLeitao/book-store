@@ -36,4 +36,5 @@
 	<c:import url="/WEB-INF/views/footer.jsp"></c:import>
 
 </body>
+<script type="text/javascript" src=""></script>
 </html>
