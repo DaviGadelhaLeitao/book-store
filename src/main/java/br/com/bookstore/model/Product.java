@@ -1,5 +1,6 @@
 package br.com.bookstore.model;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.List;
 
@@ -20,24 +21,20 @@ public class Product {
 	private String title;
 	private String description;
 	private Integer pages;
-	private String summary;
+	private String fileLocation;
 	@DateTimeFormat
 	private Calendar published;
 	@ElementCollection
-	private List<Type> types;
+	private List<Price> prices;
 	
-	@Override
-	public String toString() {
-		return "Product [title=" + title + ", description=" + description + ", pages=" + pages + "]";
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	public String getTitle() {
 		return title;
-	}
-	public String getSummary() {
-		return summary;
-	}
-	public void setSummary(String summary) {
-		this.summary = summary;
 	}
 	public void setTitle(String title) {
 		this.title = title;
@@ -54,23 +51,21 @@ public class Product {
 	public void setPages(Integer pages) {
 		this.pages = pages;
 	}
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
 	public Calendar getPublished() {
 		return published;
 	}
 	public void setPublished(Calendar published) {
 		this.published = published;
 	}
-	public List<Type> getTypes() {
-		return types;
+	public List<Price> getPrices() {
+		return prices;
 	}
-	public void setTypes(List<Type> types) {
-		this.types = types;
+	public void setPrices(List<Price> prices) {
+		this.prices = prices;
+	}
+	@Override
+	public String toString() {
+		return "Product [title=" + title + ", description=" + description + ", pages=" + pages + "]";
 	}
 	@Override
 	public int hashCode() {
@@ -94,6 +89,17 @@ public class Product {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	
+	// iterates through types and filters the subtype until finds the first equal and picks the price of this specification being passed
+	public BigDecimal priceOf(PriceType priceType) {
+		return prices.stream().filter(price -> price.getType().equals(priceType)).findFirst().get().getValue();
+	}
+	public String getFileLocation() {
+		return fileLocation;
+	}
+	public void setFileLocation(String fileLocation) {
+		this.fileLocation = fileLocation;
 	}
 	
 	

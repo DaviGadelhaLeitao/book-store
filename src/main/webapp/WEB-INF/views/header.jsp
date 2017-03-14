@@ -12,7 +12,7 @@
 			<div class="col-md-4">
 				<ul class="nav navbar-nav">
 					<li role="presentation"><a href="https://github.com/DaviGadelhaLeitao">github.com/DaviGadelhaLeitao</a></li>
-					<li><a href="/cart" rel="nofollow">Shopping cart (${shoppingCart.quantity}) </a></li>
+					<li><a href="${s:mvcUrl('SCC#items').build() }" rel="nofollow">Shopping cart (${shoppingCart.quantity}) </a></li>
 				</ul>
 			</div>
 

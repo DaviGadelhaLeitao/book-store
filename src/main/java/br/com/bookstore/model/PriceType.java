@@ -1,6 +1,6 @@
 package br.com.bookstore.model;
 
-public enum BookType {
+public enum PriceType {
 
 	EBOOK, PRINTED, BUNDLE;
 	

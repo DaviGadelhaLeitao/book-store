@@ -43,17 +43,18 @@
 				<form:errors path="published"></form:errors>
 			</div>
 			
-			<c:forEach items="${types}" var="bookType" varStatus="status">
+			<c:forEach items="${types}" var="priceType" varStatus="status">
 				<div class="form-group">
-					<label>${bookType}</label>
-					<form:input path="types[${status.index}].value"  cssClass="form-control"/>
-					<form:hidden path="types[${status.index}].type" value="${bookType}" />
+					<label>${priceType}</label>
+					<form:input path="prices[${status.index}].value"  cssClass="form-control"/>
+					<form:hidden path="prices[${status.index}].type" value="${priceType}" />
 				</div>
 			</c:forEach>
+			
 			<br>
 			<div class="form-group">
 				<label>Book summary file:</label>
-				<input type="file" name="summaryPath">
+				<input type="file" name="file">
 			</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
 		</form:form>

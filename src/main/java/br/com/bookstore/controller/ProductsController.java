@@ -18,7 +18,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.bookstore.daos.ProductDAO;
 import br.com.bookstore.infrastructure.FileSaver;
-import br.com.bookstore.model.BookType;
+import br.com.bookstore.model.PriceType;
 import br.com.bookstore.model.Product;
 import br.com.bookstore.validation.ProductValidation;
 
@@ -41,19 +41,19 @@ public class ProductsController {
 	@RequestMapping(value="/form", method=RequestMethod.GET)
 	public ModelAndView form(Product product) {
 		ModelAndView modelAndView = new ModelAndView("/products/form");
-		modelAndView.addObject("types", BookType.values());
+		modelAndView.addObject("types", PriceType.values());
 		return modelAndView;
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ModelAndView saveProduct(MultipartFile summaryPath, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
-		System.out.println(summaryPath.getOriginalFilename());
+	public ModelAndView saveProduct(MultipartFile file, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
+		System.out.println(file.getOriginalFilename());
 		if (result.hasErrors()) {
 			System.out.println(result.getFieldError());
 			return form(product);
 		}
-		String path = fileSaver.write("summary-path-folder", summaryPath);
-		product.setSummary(path);
+		String path = fileSaver.write("fileLocation", file);
+		product.setFileLocation(path);
 		
 		productDAO.save(product);
 		redirectAttributes.addFlashAttribute("confirmationMessage", "Product " + product.getTitle() + " added with success.");
