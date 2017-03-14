@@ -27,7 +27,9 @@
 					
 					
 
-					<form action="${s:mvcUrl('SCC#add').arg(0,product.id).build()}" method="POST">
+<%-- 					<form action="${s:mvcUrl('SCC#add').arg(0,product.id).build()}" method="POST"> --%>
+					<form action="<c:url value='/cart/add' />" method="post" class="container">
+					<input type="hidden" name="productId" value="${product.id}" />
 		
 						<p>Please, select your buying option below:</p>
 		

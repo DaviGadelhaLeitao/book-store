@@ -33,9 +33,9 @@ public class ShoppingCartController {
 		return modelAndView;
 	}
 	
-	private CartItem createItem(Integer productId, PriceType type) {
+	private CartItem createItem(Integer productId, PriceType priceType) {
 		Product product = productDao.find(productId);
-		CartItem cartItem = new CartItem(product, type);
+		CartItem cartItem = new CartItem(product, priceType);
 		return cartItem;
 	}
 	
