@@ -14,12 +14,11 @@
 	<div class="main">
 		<div class="container">
 			<div class="row">
-				<h2>Your cart</h2>
+				<h2>Cart Items</h2>
 				<form action="">
-					<table>
+					<table class="table table-hover table-striped">
 						<thead>
 							<tr>
-								<th></th>
 								<th>Item</th>
 								<th>Price</th>
 								<th>Qtd</th>
@@ -29,39 +28,28 @@
 						</thead>
 						<tbody>
 						
-						
-						
 							<c:forEach items="${shoppingCart.items}" var="item">
 								<tr>
-									<td></td>
-									<td>${item.product.title }</td>
+									<td>${item.product.title}</td>
 									<td>${item.price }</td>
-									<td>
-										<input type="number" readonly="readonly" name="quantity" value="${shoppingCart.getQuantityOfAnItemInACart(item) }" />
-									</td>
+									<td><input type="number" readonly="readonly" name="quantity" value="${shoppingCart.getQuantityOfAnItemInACart(item)}" ></td>
 									<td>${shoppingCart.getTotalPriceOfAnItemInCart(item) }</td> <!-- total of this item into the shopping cart  -->  
-									<td>
-										<form action="" method="POST">
-											<input type="button" value="Remove">
-										</form>
-									</td>
-									<td></td>
+									<td><form action="" method="POST"><input type="button" value="Remove"></form></td>
 								</tr>
 							</c:forEach>
-							
-							
 							
 						</tbody>
 						<tfoot>
 							<tr>
-								<td><input type="submit" value="Checkout" name="checkout"></td>
-								<td></td>
-								<td></td>
-								<td></td>
 								<td>
-									<input type="submit" name="update" value="update">
+									<form action="${s:mvcUrl('CC#orderCheckout').build()}" method="POST">
+										<input type="submit" name="checkout" value="Checkout">
+									</form>
 								</td>
-								<td>$[shoppingCart.total]</td>
+								<td></td>
+								<td><input type="submit" name="update" value="update"></td>
+								<td></td>
+								<td><p>$ ${shoppingCart.total}</p></td>
 							</tr>
 						</tfoot>
 					</table>

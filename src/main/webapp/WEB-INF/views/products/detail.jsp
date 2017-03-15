@@ -19,7 +19,6 @@
 				</div>
 				<div class="col-md-6">
 					<h1 class="product-title">${product.title }</h1>
-					<h1 class="product-title">${product.id }</h1>
 					
 					<p class="book-description">Description: ${product.description }.</p>
 			

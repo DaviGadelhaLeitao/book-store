@@ -14,6 +14,7 @@
 		<div class="container">
 			<h3>Products list</h3>
 			<p>${confirmationMessage}</p>
+			<p>${checkoutSuccessMessage} </p>
 			<table class="table table-striped table-hover ">
 				<tr>
 					<th>Title</th>

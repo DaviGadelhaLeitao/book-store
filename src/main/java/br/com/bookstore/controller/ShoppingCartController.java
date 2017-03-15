@@ -42,7 +42,7 @@ public class ShoppingCartController {
 	// must create an items method here to take the user directly to the cart detail page.
 	@RequestMapping(method=RequestMethod.GET)
 	public ModelAndView items() {
-		return new ModelAndView("/cart/items");
+		return new ModelAndView("/cart/cartItems");
 		
 	}
 	
