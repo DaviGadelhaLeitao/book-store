@@ -15,7 +15,6 @@
 		<div class="container">
 			<div class="row">
 				<h2>Cart Items</h2>
-				<form action="">
 					<table class="table table-hover table-striped">
 						<thead>
 							<tr>
@@ -31,10 +30,14 @@
 							<c:forEach items="${shoppingCart.items}" var="item">
 								<tr>
 									<td>${item.product.title}</td>
-									<td>${item.price }</td>
+									<td>$ ${item.price } - ${item.priceType }</td>
 									<td><input type="number" readonly="readonly" name="quantity" value="${shoppingCart.getQuantityOfAnItemInACart(item)}" ></td>
-									<td>${shoppingCart.getTotalPriceOfAnItemInCart(item) }</td> <!-- total of this item into the shopping cart  -->  
-									<td><form action="" method="POST"><input type="button" value="Remove"></form></td>
+									<td>$ ${shoppingCart.getTotalPriceOfAnItemInCart(item) }</td> <!-- total of this item into the shopping cart  -->  
+									<td>
+										<form action="${s:mvcUrl('SCC#remove').arg(0,item.product.id).arg(1,item.priceType).build() }" method="POST">
+											<input type="image" src="/excluir.png" alt="Excluir" title="Excluir" />
+										</form>
+									</td>
 								</tr>
 							</c:forEach>
 							
@@ -53,7 +56,6 @@
 							</tr>
 						</tfoot>
 					</table>
-				</form>
 				
 			</div>
 		</div>

@@ -46,5 +46,12 @@ public class ShoppingCartController {
 		
 	}
 	
+	@RequestMapping("/remove")
+	public ModelAndView remove(Integer productId, PriceType priceType) {
+		cart.remove(productId, priceType);
+		ModelAndView modelAndView = new ModelAndView("redirect:/cart");
+		return modelAndView;
+	}
+	
 	
 }

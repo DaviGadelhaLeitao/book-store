@@ -51,6 +51,12 @@ public class ShoppingCart implements Serializable {
 		return total;
     }
 
+	public void remove(Integer productId, PriceType priceType) {
+		Product product = new Product();
+		product.setId(productId);
+		items.remove(new CartItem(product, priceType));
+	}
+
 }
 
 

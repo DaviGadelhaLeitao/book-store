@@ -28,6 +28,14 @@ public class CartItem {
 	}
 	
 	
+	public PriceType getPriceType() {
+		return priceType;
+	}
+
+	public void setPriceType(PriceType priceType) {
+		this.priceType = priceType;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

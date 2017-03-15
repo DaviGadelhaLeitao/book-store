@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import br.com.bookstore.model.PriceType;
 import br.com.bookstore.model.ShoppingCart;
 
 @Controller
@@ -23,9 +24,9 @@ public class CheckoutController {
 		
 		ModelAndView modelAndView = new ModelAndView("redirect:/products");
 			
-			
 		return modelAndView;
-		
 	}
+	
+	
 	
 }
