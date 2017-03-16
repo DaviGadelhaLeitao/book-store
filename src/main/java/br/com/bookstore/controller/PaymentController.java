@@ -1,5 +1,7 @@
 package br.com.bookstore.controller;
 
+import java.util.concurrent.Callable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,25 +25,29 @@ public class PaymentController {
 	private RestTemplate restTemplate;
 
 	@RequestMapping(value="/orderCheckout", method=RequestMethod.POST)
-	public ModelAndView orderCheckout(RedirectAttributes model) {
+	public Callable<ModelAndView> orderCheckout(RedirectAttributes model) {
 		
-		System.out.println(shoppingCart.getTotal());
-
-		try {
-			String url = "http://book-payment.herokuapp.com/payment";
-			String response = restTemplate.postForObject(url, new PaymentData(shoppingCart.getTotal()), String.class);
-			model.addFlashAttribute("checkoutMessage", response);
-			System.out.println(response);
+		return () -> {
 			
-		} catch (HttpClientErrorException e) {
-			e.printStackTrace();
-			model.addFlashAttribute("checkoutMessage", "Valor maior que o permitido ($ 500,00");
+			try {
+				String url = "http://book-payment.herokuapp.com/payment";
+				String response = restTemplate.postForObject(url, new PaymentData(shoppingCart.getTotal()), String.class);
+				model.addFlashAttribute("checkoutMessage", response);
+				System.out.println(response);
+				
+			} catch (HttpClientErrorException e) {
+				e.printStackTrace();
+				model.addFlashAttribute("checkoutMessage", "Valor maior que o permitido ($ 500,00");
+				
+			}
 			
-		}
+			
+			ModelAndView modelAndView = new ModelAndView("redirect:/products");
+			return modelAndView;
+			
+		};
 		
 		
-		ModelAndView modelAndView = new ModelAndView("redirect:/products");
-		return modelAndView;
 	}
 	
 	
