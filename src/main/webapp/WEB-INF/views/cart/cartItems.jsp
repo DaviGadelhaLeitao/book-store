@@ -45,7 +45,7 @@
 						<tfoot>
 							<tr>
 								<td>
-									<form action="${s:mvcUrl('CC#orderCheckout').build()}" method="POST">
+									<form action="${s:mvcUrl('PC#orderCheckout').build()}" method="POST">
 										<input type="submit" name="checkout" value="Checkout">
 									</form>
 								</td>

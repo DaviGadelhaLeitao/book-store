@@ -56,7 +56,7 @@ public class ProductsController {
 		product.setFileLocation(path);
 		
 		productDAO.save(product);
-		redirectAttributes.addFlashAttribute("confirmationMessage", "Product " + product.getTitle() + " added with success.");
+		redirectAttributes.addFlashAttribute("bookAddedMessage", "Product " + product.getTitle() + " added with success.");
 		return new ModelAndView("redirect:/products");
 	}
 
