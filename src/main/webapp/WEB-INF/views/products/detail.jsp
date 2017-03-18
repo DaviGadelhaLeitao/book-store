@@ -8,6 +8,13 @@
 	<c:url value="/resources/css" var="cssPath"></c:url>
 	<link rel="stylesheet" href="${cssPath}/bootstrap.min.css" >
 	<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" >
+	<style type="text/css">
+	
+		body {
+			padding-bottom: 40px;
+		}
+	
+	</style>
 </head>
 <body>
 

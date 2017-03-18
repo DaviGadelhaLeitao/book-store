@@ -2,12 +2,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<title>Shopping cart detail page</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<c:url value="/resources/css" var="cssPath"></c:url>
 	<link rel="stylesheet" href="${cssPath}/bootstrap.min.css" >
 	<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" >
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Shopping cart detail page</title>
+	<style type="text/css">
+	
+		body {
+			padding-bottom: 40px;
+		}
+	
+	</style>
 </head>
 <body>
 
@@ -37,7 +44,7 @@
 									<td>$ ${shoppingCart.getTotalPriceOfAnItemInCart(item) }</td> <!-- total of this item into the shopping cart  -->  
 									<td>
 										<form action="${s:mvcUrl('SCC#remove').arg(0,item.product.id).arg(1,item.priceType).build() }" method="POST">
-											<input type="image" src="/excluir.png" alt="Excluir" title="Excluir" />
+											<input type="image" src="resources/images/trashIcon.png" alt="Excluir" title="Excluir" />
 										</form>
 									</td>
 								</tr>
