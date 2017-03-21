@@ -23,20 +23,22 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
+      
+        <security:authorize access="!isAuthenticated()"><li><a href="${s:mvcUrl('LC#login').build()}">Login</a></li></security:authorize>
         <li><a href="https://github.com/DaviGadelhaLeitao" rel="nofollow">github.com/DaviGadelhaLeitao</a></li>
         <li><a href="${s:mvcUrl('SCC#items').build() }" rel="nofollow">Shopping cart (${shoppingCart.quantity}) </a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           	<security:authorize access="isAuthenticated()">
           		<security:authentication property="principal.username"/>
-          	</security:authorize><span class="caret"></span>
+          	<span class="caret"></span></security:authorize>
           </a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
             <li><a href="#">Something else here</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Logout</a></li>
+            <li><a href="${s:mvcUrl('LC#logout').build() }">Logout</a></li>
           </ul>
         </li>
       </ul>

@@ -6,9 +6,6 @@
 				<li>
 					<a href="mailto:#">davi.leitao@hotmail.com</a>
 				</li>
-				<li>
-					<a href="#" id="back-to-top-btn">Back to top</a>
-				</li>
 			</ul>
 		</div>
 	</nav>
