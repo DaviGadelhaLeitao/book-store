@@ -2,14 +2,8 @@ html {
 	margin: 0px;
 	padding: 0px;
 }
-
 body {
-	padding-bottom: 0px;
-	
-}
-
-#ul {
-	border-color: #101010;
+	padding: 0px;
 }
 
 #navbar-footer {
@@ -17,5 +11,62 @@ body {
 	padding: 0px;
 }
 
-a {
+body > div.header > nav {
+	border: 0px;
 }
+
+body > div.header > nav > div > div.navbar-header > a {
+	&:hover {
+		color: #fff;
+	}
+}
+
+#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a {
+	&:hover {
+		color: #fff;
+	}
+}
+
+#ul > li > a {
+	&:hover {
+		color: #fff;
+	}
+}
+
+#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right {
+	padding-right: 15px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	background-color: #000;
+	padding: 0px;
+}
+.container-fluid {
+	padding: 20px;
+	background-color: #000;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.open>a {
+	background-image:linear-gradient(to bottom,#000 0,#000 100%);
+}
+body > div.header > nav > div > div.navbar-header {padding-left: 15px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

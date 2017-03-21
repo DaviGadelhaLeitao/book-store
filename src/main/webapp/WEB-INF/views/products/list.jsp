@@ -3,20 +3,18 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<c:url value="/resources/css" var="cssPath"></c:url>
 	<c:url value="/resources/js" var="jsPath"></c:url>
 	<link rel="stylesheet" href="${cssPath}/bootstrap.min.css" >
 	<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" >
 	<link rel="stylesheet" href="${cssPath}/bookStore.css" >
-	<link rel="stylesheet" href="${jsPath}/bootstrap.js" >
-	<link rel="stylesheet" href="${jsPath}/bootstrap.min.js" >
-	<link rel="stylesheet" href="${jsPath}/npm.js" >
-	<link rel="stylesheet" href="${jsPath}/jquery-3.2.0.min.js" >
 	<title>List</title>
 </head>
 <body>
-
-	<c:import url="/WEB-INF/views/header.jsp"></c:import>
+	<div class="header">
+		<c:import url="/WEB-INF/views/header.jsp"></c:import>
+	</div>
 
 	<div class="main">
 		<div class="container">
@@ -41,9 +39,32 @@
 			</table>
 		</div>
 	</div>
-
+	
 	<c:import url="/WEB-INF/views/footer.jsp"></c:import>
 
 </body>
-<script type="text/javascript" src=""></script>
+	<script type="text/javascript" src="${jsPath}/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="${jsPath}/bootstrap.js"></script>
+	<script type="text/javascript" src="${jsPath}/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${jsPath}/npm.js"></script>
+	<script type="text/javascript" src="${jsPath}/header.js"></script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

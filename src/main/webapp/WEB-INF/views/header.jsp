@@ -1,6 +1,5 @@
 <%@ include file="/WEB-INF/includes.jsp"%>
-
-<nav class="navbar navbar-default" >
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -22,11 +21,16 @@
         <li><a href="${s:mvcUrl('PC#form').build() }">Form</a></li>
         </security:authorize>
       </ul>
+      
       <ul class="nav navbar-nav navbar-right">
         <li><a href="https://github.com/DaviGadelhaLeitao" rel="nofollow">github.com/DaviGadelhaLeitao</a></li>
         <li><a href="${s:mvcUrl('SCC#items').build() }" rel="nofollow">Shopping cart (${shoppingCart.quantity}) </a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><security:authentication property="principal.username"/><span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          	<security:authorize access="isAuthenticated()">
+          		<security:authentication property="principal.username"/>
+          	</security:authorize><span class="caret"></span>
+          </a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -36,6 +40,11 @@
           </ul>
         </li>
       </ul>
+      
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
+
+
+
+
