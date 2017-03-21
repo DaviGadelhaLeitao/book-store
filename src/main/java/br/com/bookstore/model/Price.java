@@ -17,14 +17,11 @@ public class Price {
 		this.value = value;
 	}
 	
-	
 	public PriceType getType() {
 		return type;
 	}
 	public void setType(PriceType type) {
 		this.type = type;
 	}
-	
-	
 	
 }
