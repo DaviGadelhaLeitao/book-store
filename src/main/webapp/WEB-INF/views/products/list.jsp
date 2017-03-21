@@ -4,16 +4,15 @@
 <head>
 	<meta charset="UTF-8">
 	<c:url value="/resources/css" var="cssPath"></c:url>
+	<c:url value="/resources/js" var="jsPath"></c:url>
 	<link rel="stylesheet" href="${cssPath}/bootstrap.min.css" >
 	<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" >
+	<link rel="stylesheet" href="${cssPath}/bookStore.css" >
+	<link rel="stylesheet" href="${jsPath}/bootstrap.js" >
+	<link rel="stylesheet" href="${jsPath}/bootstrap.min.js" >
+	<link rel="stylesheet" href="${jsPath}/npm.js" >
+	<link rel="stylesheet" href="${jsPath}/jquery-3.2.0.min.js" >
 	<title>List</title>
-	<style type="text/css">
-	
-		body {
-			padding-bottom: 40px;
-		}
-	
-	</style>
 </head>
 <body>
 
@@ -24,7 +23,7 @@
 			<h3>Products list</h3>
 			<p>${bookAddedMessage}</p>
 			<p>${checkoutMessage}</p>
-			<table class="table table-striped table-hover ">
+			<table class="table table-striped table-hover table-bordered ">
 				<tr>
 					<th>Title</th>
 					<th>Description</th>
