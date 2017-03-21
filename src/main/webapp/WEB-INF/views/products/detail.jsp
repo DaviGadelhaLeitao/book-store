@@ -29,8 +29,7 @@
 			
 					<p>Published in: <fmt:formatDate pattern="dd/MM/yyyy" value="${product.published.time}" />.</p>
 
-<%-- 					<form action="${s:mvcUrl('SCC#add').arg(0,product.id).build()}" method="POST"> --%>
-					<form action="<c:url value='/cart/add' />" method="post" class="container">
+					<form:form servletRelativeAction="/cart/add" method="post" cssClass="container">
 					<input type="hidden" name="productId" value="${product.id}" />
 		
 						<p>Please, select your buying option below:</p>
@@ -47,7 +46,7 @@
 						</ul>
 						<button type="submit" class="btn btn-primary" title="Compre Agora${product.title}">Buy now</button>
 		
-					</form>
+					</form:form>
 					
 				</div>
 			</div>

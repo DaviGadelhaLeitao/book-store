@@ -51,9 +51,9 @@
 						<tfoot>
 							<tr>
 								<td>
-									<form action="${s:mvcUrl('PC#orderCheckout').build()}" method="POST">
+									<form:form action="${s:mvcUrl('PC#orderCheckout').build()}" method="POST">
 										<input type="submit" name="checkout" value="Checkout">
-									</form>
+									</form:form>
 								</td>
 								<td></td>
 								<td><input type="submit" name="update" value="update"></td>
