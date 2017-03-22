@@ -6,16 +6,20 @@ It is being written in Java using the Spring MVC, JPA2, Hibernate, Apache Maven,
 
 It will support the following features:
 
-	Authentication.
-	Registration of users and profiles.
-	Registration of new books by authorized users.
-	A page with all books to be sold.
-	A product's detail page.
-	A virtual shopping cart.
+	An online virtual store.
 	An order checkout process.
 	Robust Caching.
 	REST services availability.
-	Application's protection capabilities with Spring Security.
+	Creation of templates to build views.
+	Application's protection capabilities with Spring Security (Cross Site Request Forgery).
+	Authentication.
+	User Roles and permitions.
+	Changing locale dynamically.
+	Internacionalization.
+	Sending emails.
+	Using gmail to send emails.
+	Application's testing with jUnit.
 	Data validation at the Controller layer.
 	Persistence of data.
+	Publishing and deploy the app with Heroku.
 	
