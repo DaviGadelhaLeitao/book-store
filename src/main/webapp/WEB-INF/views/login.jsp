@@ -13,9 +13,7 @@
 </head>
 <body>
 
-	<div class="header">
-		<c:import url="/WEB-INF/views/header.jsp"></c:import>
-	</div>
+	<%@ include file="/WEB-INF/views/header.jsp" %>
 
 	<div class="main">
 		<div class="container">
@@ -40,7 +38,7 @@
 		</div>
 	</div>
 	
-	<c:import url="/WEB-INF/views/footer.jsp"></c:import>
+	<%@ include file="/WEB-INF/views/footer.jsp" %>
 
 </body>
 	<script type="text/javascript" src="${jsPath}/jquery-3.2.0.min.js"></script>

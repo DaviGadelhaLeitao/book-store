@@ -1,21 +1,6 @@
 <%@ include file="/WEB-INF/includes.jsp"%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<title>Shopping cart detail page</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<c:url value="/resources/css" var="cssPath"></c:url>
-	<c:url value="/resources/js" var="jsPath"></c:url>
-	<link rel="stylesheet" href="${cssPath}/bootstrap.min.css" >
-	<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css" >
-	<link rel="stylesheet" href="${cssPath}/bookStore.css" >
-</head>
 <body>
-
-	<div class="header">
-		<c:import url="/WEB-INF/views/header.jsp"></c:import>
-	</div>
+<tags:pageTemplate title="Cart items">
 
 	<div class="main">
 		<div class="container">
@@ -40,9 +25,9 @@
 									<td><input type="number" readonly="readonly" name="quantity" value="${shoppingCart.getQuantityOfAnItemInACart(item)}" ></td>
 									<td>$ ${shoppingCart.getTotalPriceOfAnItemInCart(item) }</td> <!-- total of this item into the shopping cart  -->  
 									<td>
-										<form action="${s:mvcUrl('SCC#remove').arg(0,item.product.id).arg(1,item.priceType).build() }" method="POST">
-											<input type="image" src="resources/images/trashIcon.png" alt="Excluir" title="Excluir" />
-										</form>
+										<form:form action="${s:mvcUrl('SCC#remove').arg(0,item.product.id).arg(1,item.priceType).build() }" method="POST">
+											<input type="image" src="${imagesPath}/trashIcon.png" alt="Excluir" title="Excluir" />
+										</form:form>
 									</td>
 								</tr>
 							</c:forEach>
@@ -67,8 +52,7 @@
 		</div>
 	</div>
 	
-	<c:import url="/WEB-INF/views/footer.jsp"></c:import>
-
+</tags:pageTemplate>
 </body>
 	<script type="text/javascript" src="${jsPath}/jquery-3.2.0.min.js"></script>
 	<script type="text/javascript" src="${jsPath}/bootstrap.js"></script>
