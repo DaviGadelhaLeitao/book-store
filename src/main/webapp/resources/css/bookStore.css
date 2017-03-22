@@ -15,16 +15,13 @@ body {
 body > div.header > nav {
   border: 0px; }
 
-body > div.header > nav > div > div.navbar-header > a:hover {
+#bs-example-navbar-collapse-1 .nav.navbar-nav.navbar-right li a:hover {
   color: #fff; }
 
-#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right > li > a:hover {
+#ul a:hover {
   color: #fff; }
 
-#ul > li > a:hover {
-  color: #fff; }
-
-#bs-example-navbar-collapse-1 > ul.nav.navbar-nav.navbar-right {
+#bs-example-navbar-collapse-1 .navbar-nav.navbar-right {
   padding-right: 15px; }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
@@ -38,7 +35,15 @@ body > div.header > nav > div > div.navbar-header > a:hover {
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .open > a {
   background-image: linear-gradient(to bottom, #000 0, #000 100%); }
 
-body > div.header > nav > div > div.navbar-header {
-  padding-left: 15px; }
+.header .navbar-header {
+  padding-left: 20px; }
+  .header .navbar-header a:hover {
+    color: #fff; }
+
+#bookCoverButton {
+  margin-bottom: 30px; }
+
+.home h3 {
+  margin-top: 10px; }
 
 /*# sourceMappingURL=bookStore.css.map */

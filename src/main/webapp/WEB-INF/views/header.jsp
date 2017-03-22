@@ -16,18 +16,47 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav" id="ul">
-        <li><a href="${s:mvcUrl('HC#home').build() }">Home <span class="sr-only">(current)</span></a></li>
+        <li>
+        	<a href="${s:mvcUrl('HC#home').build() }"><span class="sr-only">(current)</span>
+        		<fmt:message key="menu.homepage" />
+        	</a>
+        </li>
         <security:authorize access="isAuthenticated()">
-        <li><a href="${s:mvcUrl('PC#list').build() }">Products List</a></li>
-        <li><a href="${s:mvcUrl('PC#form').build() }">Form</a></li>
+        <li>
+        	<a href="${s:mvcUrl('PC#list').build() }">
+        		<fmt:message key="menu.productList" />
+        	</a>
+        </li>
+        <li>
+	        <a href="${s:mvcUrl('PC#form').build() }">
+        		<fmt:message key="menu.form" />
+	        </a>
+        </li>
         </security:authorize>
+        <li>
+	        <a href="?locale=pt">
+        		<fmt:message key="menu.pt" />
+	        </a>
+        </li>
+        <li>
+	        <a href="?locale=en_US">
+        		<fmt:message key="menu.en" />
+	        </a>
+        </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
       
         <security:authorize access="!isAuthenticated()"><li><a href="${s:mvcUrl('LC#login').build()}">Login</a></li></security:authorize>
         <li><a href="https://github.com/DaviGadelhaLeitao" rel="nofollow">github.com/DaviGadelhaLeitao</a></li>
-        <li><a href="${s:mvcUrl('SCC#items').build() }" rel="nofollow">Shopping cart (${shoppingCart.quantity}) </a></li>
+        <li>
+        	<a href="${s:mvcUrl('SCC#items').build() }" rel="nofollow">
+        		<fmt:message key="menu.cart">
+	        		<fmt:param value="${shoppingCart.quantity}"/>
+        		</fmt:message>
+        	</a>
+        	
+        </li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
           	<security:authorize access="isAuthenticated()">

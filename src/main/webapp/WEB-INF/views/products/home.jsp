@@ -4,20 +4,17 @@
 
 <tags:pageTemplate title="Home">
 
-	<div class="main">
+	<div class="home">
 		<div class="container">
-
 			<div class="row">
 				<c:forEach items="${products }" var="product">
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail" id="homeThumbnail">
-							<img src="resources/images/bookCover.jpg" alt="">
-							<div class="caption">
-								<h3>${product.title}</h3>
-								<p>
-									<a href="${s:mvcUrl('PC#detail').arg(0, product.id).build() }" class="btn btn-default" role="button">See details</a>
-								</p>
-							</div>
+					<div class="col-md-4">
+						<a href="javascript:void(0)" class="consumer thumbnail"><img src="resources/images/bookCover.jpg"></a>
+						<div class="row">
+							<h3 id="homeH3">${product.title}</h3>
+						</div>
+						<div class="row">
+							<a href="${s:mvcUrl('PC#detail').arg(0, product.id).build() }" class="btn btn-default" role="button" id="bookCoverButton">See details</a>
 						</div>
 					</div>
 				</c:forEach>
