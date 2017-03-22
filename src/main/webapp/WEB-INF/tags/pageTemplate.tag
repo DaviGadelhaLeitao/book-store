@@ -14,9 +14,13 @@
 	<link rel="stylesheet" href="${cssPath}/bookStore.css" >
 	<title>${title} - Book Store</title>
 </head>
-
 <%@ include file="/WEB-INF/views/header.jsp" %>
 
 <jsp:doBody />
 
 <%@ include file="/WEB-INF/views/footer.jsp" %>
+	<script type="text/javascript" src="${jsPath}/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="${jsPath}/bootstrap.js"></script>
+	<script type="text/javascript" src="${jsPath}/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${jsPath}/npm.js"></script>
+	<script type="text/javascript" src="${jsPath}/header.js"></script>

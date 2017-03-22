@@ -27,9 +27,5 @@
 	
 </tags:pageTemplate>
 </body>
-	<script type="text/javascript" src="${jsPath}/jquery-3.2.0.min.js"></script>
-	<script type="text/javascript" src="${jsPath}/bootstrap.js"></script>
-	<script type="text/javascript" src="${jsPath}/bootstrap.min.js"></script>
-	<script type="text/javascript" src="${jsPath}/npm.js"></script>
-	<script type="text/javascript" src="${jsPath}/header.js"></script>
+	
 </html>
