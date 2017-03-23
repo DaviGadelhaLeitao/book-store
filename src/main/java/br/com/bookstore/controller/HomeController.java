@@ -22,7 +22,7 @@ public class HomeController {
 	@Cacheable(value="productsHome")
 	public ModelAndView home() {
 		List<Product> products = productDAO.list();
-		ModelAndView modelAndView = new ModelAndView("/products/home");
+		ModelAndView modelAndView = new ModelAndView("products/home");
 		modelAndView.addObject("products", products);
 		return modelAndView;
 	}
