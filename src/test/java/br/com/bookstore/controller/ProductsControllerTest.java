@@ -1,9 +1,12 @@
 package br.com.bookstore.controller;
 
+import javax.servlet.Filter;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -17,10 +20,11 @@ import org.springframework.web.context.WebApplicationContext;
 import br.com.bookstore.conf.AppWebConfiguration;
 import br.com.bookstore.conf.DataSourceConfigurationTest;
 import br.com.bookstore.conf.JPAConfiguration;
+import br.com.bookstore.conf.SecurityConfiguration;
 
 @WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {JPAConfiguration.class, AppWebConfiguration.class, DataSourceConfigurationTest.class})
+@ContextConfiguration(classes = {JPAConfiguration.class, AppWebConfiguration.class, DataSourceConfigurationTest.class, SecurityConfiguration.class})
 @ActiveProfiles("test")
 public class ProductsControllerTest {
 	
@@ -29,9 +33,12 @@ public class ProductsControllerTest {
 	
 	private MockMvc mockMvc;
 	
+	@Autowired
+	private Filter springSecurityFilterChain;
+	
 	@Before
 	public void setup() {
-		mockMvc = MockMvcBuilders.webAppContextSetup(wac).build();
+		mockMvc = MockMvcBuilders.webAppContextSetup(wac).addFilter(springSecurityFilterChain).build();
 	}
 	
 	@Test
@@ -39,6 +46,15 @@ public class ProductsControllerTest {
 		mockMvc.perform(MockMvcRequestBuilders.get("/"))
 			.andExpect(MockMvcResultMatchers.model().attributeExists("products"))
 			.andExpect(MockMvcResultMatchers.forwardedUrl("/WEB-INF/views/products/home.jsp"));
+	}
+	
+	@Test
+	public void onlyAdminUsersShouldAccessForm() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/products/form")
+				.with(SecurityMockMvcRequestPostProcessors
+						.user("user@bookstore.com.br").password("123456")
+						.roles("USER")))		
+					.andExpect(MockMvcResultMatchers.status().is(403));
 	}
 	
 

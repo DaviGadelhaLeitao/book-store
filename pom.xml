@@ -27,12 +27,6 @@
 			<version>4.3.6.RELEASE</version>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-test</artifactId>
-			<version>4.3.6.RELEASE</version>
-		</dependency>
-
-		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.1</version>
@@ -138,7 +132,7 @@
 			<artifactId>spring-context-support</artifactId>
 			<version>4.3.6.RELEASE</version>
 		</dependency>
-
+		<!-- Security -->
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-config</artifactId>
@@ -159,11 +153,23 @@
 			<artifactId>spring-security-taglibs</artifactId>
 			<version>4.2.0.RELEASE</version>
 		</dependency>
+		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.3.6.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-test</artifactId>
+			<version>4.2.0.RELEASE</version>
+		</dependency>
+
 
 
 
