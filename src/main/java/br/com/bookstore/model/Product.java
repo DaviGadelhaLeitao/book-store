@@ -1,6 +1,7 @@
 package br.com.bookstore.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Product {
 	@DateTimeFormat
 	private Calendar published;
 	@ElementCollection
-	private List<Price> prices;
+	private List<Price> prices = new ArrayList<>();
 	
 	public Integer getId() {
 		return id;
