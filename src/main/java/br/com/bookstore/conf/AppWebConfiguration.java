@@ -2,6 +2,7 @@ package br.com.bookstore.conf;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.springframework.cache.CacheManager;
@@ -15,6 +16,8 @@ import org.springframework.format.datetime.DateFormatter;
 import org.springframework.format.datetime.DateFormatterRegistrar;
 import org.springframework.format.support.DefaultFormattingConversionService;
 import org.springframework.format.support.FormattingConversionService;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.web.accept.ContentNegotiationManager;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.multipart.MultipartResolver;
@@ -120,7 +123,46 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		
 	}
 	
-	
+	@Bean
+	public MailSender mailSender() {
+		
+		JavaMailSenderImpl mailSenderImpl = new JavaMailSenderImpl();
+		mailSenderImpl.setHost("smtp.gmail.com");
+		mailSenderImpl.setUsername("joao.limao12345@gmail.com");
+		mailSenderImpl.setPassword("123456789$");
+		mailSenderImpl.setPort(587);
+		
+		Properties properties = new Properties();
+		properties.put("mail.smtp.auth", true);
+		properties.put("mail.smtp.starttls.enable", true);
+		
+		mailSenderImpl.setJavaMailProperties(properties);
+		
+		return mailSenderImpl;
+	}
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
