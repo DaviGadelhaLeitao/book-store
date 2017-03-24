@@ -26,7 +26,9 @@
 					<form:errors path="username"></form:errors>
 				</div>
 				<div class="form-group">
-					<label>Password:</label>
+					<label>
+						<fmt:message key="login.password"></fmt:message>
+					</label>
 					<input type="password" name="password" class="form-control"/>
 				</div>
 				<div>

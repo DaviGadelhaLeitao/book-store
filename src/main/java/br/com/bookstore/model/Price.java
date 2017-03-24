@@ -23,5 +23,11 @@ public class Price {
 	public void setType(PriceType type) {
 		this.type = type;
 	}
+	@Override
+	public String toString() {
+		return type.name() + " - " + this.value;
+	}
+	
+	
 	
 }

@@ -13,6 +13,7 @@
 					<th>Description</th>
 					<th>Pages</th>
 					<th>Published</th>
+					<th>Prices</th>
 				</tr>
 				<c:forEach items="${products }" var="product">
 					<tr>
@@ -20,6 +21,7 @@
 						<td>${product.description }</td>
 						<td>${product.pages }</td>
 						<td><fmt:formatDate pattern="dd/MM/yyyy" value="${product.published.time }" /></td>
+						<td>${product.prices }</td>
 					</tr>
 				</c:forEach>
 			</table>

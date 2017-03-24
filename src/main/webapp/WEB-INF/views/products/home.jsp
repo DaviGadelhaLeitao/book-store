@@ -13,8 +13,8 @@
 						<div class="row">
 							<h3 id="homeH3">${product.title}</h3>
 						</div>
-						<div class="row">
-							<a href="${s:mvcUrl('PC#detail').arg(0, product.id).build() }" class="btn btn-default" role="button" id="bookCoverButton">See details</a>
+						<div class="row" id="see-details-line-height">
+							<a href="${s:mvcUrl('PC#detail').arg(0, product.id).build() }" class="btn btn-default" role="button" id="bookCoverButton"><fmt:message key="home.details"></fmt:message></a>
 						</div>
 					</div>
 				</c:forEach>
