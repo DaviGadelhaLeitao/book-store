@@ -50,6 +50,7 @@ public class ProductsController {
 	@CacheEvict(value="productsHome", allEntries=true)
 	public ModelAndView saveProduct(MultipartFile file, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
 		System.out.println(file.getOriginalFilename());
+			
 		if (result.hasErrors()) {
 			System.out.println(result.getFieldError());
 			return form(product);
@@ -74,6 +75,7 @@ public class ProductsController {
 	public ModelAndView detail(@PathVariable("id") Integer id) {
 		ModelAndView modelAndView = new ModelAndView("/products/detail");
 		Product product = productDAO.find(id);
+		
 		modelAndView.addObject("product", product);
 		return modelAndView;
 	}
