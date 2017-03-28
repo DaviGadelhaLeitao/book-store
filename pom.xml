@@ -201,29 +201,12 @@
 			<version>1.4</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.github.jsimone/webapp-runner -->
-<!-- 		<dependency> -->
-<!-- 			<groupId>com.github.jsimone</groupId> -->
-<!-- 			<artifactId>webapp-runner</artifactId> -->
-<!-- 			<version>8.5.11.3</version> -->
-<!-- 		</dependency> -->
-
 		<!-- https://mvnrepository.com/artifact/org.postgresql/postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>9.4.1212</version>
 		</dependency>
-
-
-
-
-		<!-- Plugins -->
-
-
-
-
-
 
 	</dependencies>
 </project>

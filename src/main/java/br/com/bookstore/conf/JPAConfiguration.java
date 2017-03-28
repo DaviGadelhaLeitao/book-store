@@ -30,6 +30,7 @@ public class JPAConfiguration {
 
 		return factoryBean;
 	}
+	
 	@Bean
 	@Profile("dev")
 	public Properties additionalProperties() {
