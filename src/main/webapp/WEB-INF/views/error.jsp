@@ -1,22 +1,23 @@
-<%@ taglib tagdir="/WEB-INF/tags" prefix="tags" %>
-<%@ include file="/WEB-INF/includes.jsp" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="tags"%>
+<%@ include file="/WEB-INF/includes.jsp"%>
 <body>
 
-<tags:pageTemplate title="Home">
+	<tags:pageTemplate title="Home">
 
-	<div class="home">
-		<div class="container">
-			<div class="row">
-				<h1>Sorry!!! :-( Something wrong happened!! </h1>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
+		<div class="home">
+			<div class="container">
+				<div class="row">
+					<h1>Sorry !!! :-( Something wrong happened!!</h1>
+					<br /> <br /> <br /> <br />
+					<!-- Message: ${ exception.message} -->
+					<c:forEach items="${exception.stackTrace }" var="stk">
+						${stk }
+					</c:forEach>
+				</div>
 			</div>
 		</div>
-	</div>
-	
-</tags:pageTemplate>
+
+	</tags:pageTemplate>
 </body>
-	
+
 </html>
