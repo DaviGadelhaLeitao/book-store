@@ -9,10 +9,11 @@
 				<div class="row">
 					<h1>Sorry !!! :-( Something wrong happened!!</h1>
 					<br /> <br /> <br /> <br />
-					<!-- Message: ${ exception.message} -->
+					<!-- Message: ${ exception.message} 
 					<c:forEach items="${exception.stackTrace }" var="stk">
 						${stk }
 					</c:forEach>
+					-->
 				</div>
 			</div>
 		</div>
