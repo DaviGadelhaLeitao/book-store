@@ -23,3 +23,6 @@ It will support the following features:
 	Persistence of data.
 	Publishing and deploy the app with Heroku.
 	
+To run this application you must put the following VM argument into your launch configuration:
+
+-Dspring.profiles.active="dev"
