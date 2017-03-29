@@ -1,5 +1,7 @@
 book-store
 
+Project deployed at http://davileitao-bookstore.herokuapp.com/login
+
 An online Web Store of products, contextualized to be a Book store.
 
 It is being written in Java using the Spring MVC, JPA2, Hibernate, Apache Maven, JSTL, CSS, SaSS and Bootstrap.
@@ -23,6 +25,7 @@ It will support the following features:
 	Persistence of data.
 	Publishing and deploy the app with Heroku.
 	
-To run this application you must put the following VM argument into your launch configuration:
+To run this application locally you must put the following VM argument into your launch configuration:
 
 -Dspring.profiles.active="dev"
+
