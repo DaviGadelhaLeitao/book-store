@@ -120,7 +120,6 @@ public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	@Bean
 	public LocaleResolver localeResolver() {
 		return new CookieLocaleResolver();
-		
 	}
 	
 	@Bean
