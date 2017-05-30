@@ -22,6 +22,10 @@
 						<td>${product.pages }</td>
 						<td><fmt:formatDate pattern="dd/MM/yyyy" value="${product.published.time }" /></td>
 						<td>${product.prices }</td>
+						<td>
+							<a href="${s:mvcUrl('PC#alterar').arg(0,product.id).build() }">Alterar</a>
+                			<a href="<c:url value='products/remove'/>/${product.id}">Remover</a>
+                		</td>
 					</tr>
 				</c:forEach>
 			</table>

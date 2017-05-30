@@ -80,6 +80,43 @@ public class ProductsController {
 		return modelAndView;
 	}
 	
+//	@RequestMapping("/alterar/{id}")
+//	public ModelAndView alterar(@PathVariable("id") Integer id) {
+//		ModelAndView modelAndView = new ModelAndView("/products/form");
+//		Product product = productDAO.find(id);
+//		
+//		modelAndView.addObject("product", product);
+//		return modelAndView;
+//	}
+	@RequestMapping("/alterar/{id}")
+	public ModelAndView alterar(@PathVariable("id") Integer id) {
+		System.out.println("Entrando no alterar...");
+		ModelAndView modelAndView = new ModelAndView("/products/update");
+		Product product = productDAO.find(id);
+		modelAndView.addObject("product", product);
+		System.out.println("Id do produto antes da página de atualização: " + product.getId());
+		return modelAndView;
+	}
+	
+	@RequestMapping(value = "/update", method=RequestMethod.POST)
+	@CacheEvict(value="productsHome", allEntries=true)
+	public ModelAndView update(MultipartFile file, @Valid Product product, BindingResult result, RedirectAttributes redirectAttributes) {
+		System.out.println(file.getOriginalFilename());
+		System.out.println("Id do produto: " + product.getId());
+			
+		if (result.hasErrors()) {
+			System.out.println(result.getFieldError());
+			return form(product);
+		}
+		String path = fileSaver.write("fileLocation", file);
+		product.setFileLocation(path);
+		
+		productDAO.update(product);
+		productDAO.save(product);
+		redirectAttributes.addFlashAttribute("bookAddedMessage", "Product " + product.getTitle() + " added with success.");
+		return new ModelAndView("redirect:/products");
+	}
+	
 	
 	
 }

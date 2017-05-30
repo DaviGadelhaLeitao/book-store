@@ -38,4 +38,10 @@ public class ProductDAO {
 		query.setParameter("priceType", priceType);
 		return query.getSingleResult();
 	}
+	
+	public void update(Product product) {
+		System.out.println("Entrando no update do ProductDAO");
+		System.out.println(product.getId());
+		manager.merge(product);
+	}
 }

@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 
 public class CartItem {
 	
-	private Product product;
-	private PriceType priceType;
-	
 	public CartItem(Product product, PriceType priceType) {
 		this.product = product;
 		this.priceType = priceType;
 	}
+	
+	private Product product;
+	private PriceType priceType;
 	
 	public Product getProduct() {
 		return product;

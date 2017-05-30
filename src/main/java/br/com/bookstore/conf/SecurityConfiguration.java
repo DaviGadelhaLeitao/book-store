@@ -20,6 +20,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+		.antMatchers("/").permitAll()
 		.antMatchers("/$2a$10$clgpvXf9HwBPQet6d0IwMeBfotEBOUiCDZi85/u077R3TDzd./Q76").permitAll()
 	    .antMatchers("/products/form").permitAll()
 	    .antMatchers("/cart/**").permitAll()
@@ -27,7 +28,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	    .antMatchers(HttpMethod.GET, "/products").permitAll()
 	    .antMatchers("/resources/**").permitAll()
 	    .antMatchers("/products/**").permitAll()
-	    .antMatchers("/").permitAll()
 	    .anyRequest().authenticated()
 	    .and().formLogin().loginPage("/login").permitAll()
 	    .and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));

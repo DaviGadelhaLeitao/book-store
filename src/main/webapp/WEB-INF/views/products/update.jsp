@@ -6,7 +6,8 @@
 	
 	<div class="main">
 		<div class="container">
-			<form:form action="${s:mvcUrl('PC#saveProduct').build()}" method="POST" commandName="product" enctype="multipart/form-data">
+			<form:form action="${s:mvcUrl('PC#update').arg(0,product.id).build()}" method="POST" commandName="product" enctype="multipart/form-data">
+				
 				<div class="form-group">
 					<label>Title</label>
 					<form:input path="title" cssClass="form-control"  placeholder="<form:"/>
@@ -23,7 +24,7 @@
 				</div>
 				<div class="form-group">
 					<label>Pages:</label>
-					<form:input path="pages" cssClass="form-control"/>
+					<form:input path="pages" cssClass="form-control" />
 				</div>
 				<div>
 					<form:errors path="pages"></form:errors>
@@ -50,6 +51,7 @@
 					<label>Book summary file:</label>
 					<input type="file" name="file">
 				</div>
+				<input type="hidden" value="${product.id}">
 			<button type="submit" class="btn btn-primary">Submit</button>
 			</form:form>
 		</div>

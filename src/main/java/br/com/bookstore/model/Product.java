@@ -16,15 +16,16 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class Product {
 	
-	// let the database manage the id
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String title;
 	private String description;
 	private Integer pages;
 	private String fileLocation;
+	
 	@DateTimeFormat
 	private Calendar published;
+	
 	@ElementCollection
 	private List<Price> prices = new ArrayList<>();
 	
